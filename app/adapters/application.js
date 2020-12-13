@@ -1,3 +1,5 @@
+/* eslint-disable ember/no-computed-properties-in-native-classes */
+
 import JSONAPIAdapter from "@ember-data/adapter/json-api";
 import { underscore } from "@ember/string";
 import { pluralize } from "ember-inflector";
