@@ -1,9 +1,9 @@
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
+import { inject as service, Registry as Services } from "@ember/service";
 import { action } from "@ember/object";
 
 export default class LoginController extends Controller {
-  @service session;
+  @service session!: Services['session'];
 
   @action
   async signup() {
@@ -14,6 +14,6 @@ export default class LoginController extends Controller {
       user.email,
       user.password
     );
-    this.transitionTo("index");
+    this.transitionToRoute("index");
   }
 }

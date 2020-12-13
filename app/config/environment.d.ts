@@ -11,4 +11,7 @@ declare const config: {
   locationType: string;
   rootURL: string;
   APP: Record<string, unknown>;
+
+  apiNamespace: string;
+  serverURL: string
 };
