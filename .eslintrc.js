@@ -11,7 +11,10 @@ module.exports = {
     },
   },
   plugins: ["ember"],
-  extends: ["eslint:recommended", "plugin:ember/recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:ember/recommended"
+  ],
   env: {
     browser: true,
   },
