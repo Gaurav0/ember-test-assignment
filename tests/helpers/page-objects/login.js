@@ -7,7 +7,7 @@ const loginPage = {
     emailField: ".login-form #email-field",
     passwordField: ".login-form #password-field",
     submitButton: ".login-form button[type='submit']",
-    error: ".login-form__error"
+    error: ".login-form__error",
   },
 
   visit() {
@@ -24,7 +24,7 @@ const loginPage = {
 
   submit() {
     return click(this.selectors.submitButton);
-  }
+  },
 };
 
 export default loginPage;
