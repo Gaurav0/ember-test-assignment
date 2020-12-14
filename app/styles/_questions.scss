@@ -1,0 +1,28 @@
+.Question__header, .Question__search-bar {
+  margin-left: 110px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Question__header {
+  font-size: x-large;
+}
+
+.Question__ask-button {
+  margin-left: 35%;
+}
+
+.Question__header-views, .Question__views {
+  width: 10%;
+  min-width: 100px;
+  text-align: right;
+  font-size: smaller;
+}
+
+.Question__header-title, .Question__title {
+  font-size: larger;
+}
+
+.Question__table th, .Question__table td {
+  padding: 5px 15px;
+}

@@ -1,15 +1,22 @@
 <div class="row h-screen">
   <main role="main" class="col-md-10">
-    <table>
+    <div class="Question__header">Expert Advice</div>
+    <div class="Question__search-bar">
+      <div class="Question__search">
+        <input value={{this.tempSearch}} {{on "input" this.updateSearch}} placeholder="Search..." />
+        <button type="button" class="Question__ask-button btn btn-primary">Ask a Question</button>
+      </div>
+    </div>
+    <table class="Question__table">
       <thead>
-        <th>Views</th>
-        <th>Questions</th>
+        <th class="Question__header-views">Views</th>
+        <th class="Question__header-ttile">Questions</th>
       </thead>
       <tbody>
         {{#each @model as |question|}}
           <tr>
-            <td>{{question.views}}</td>
-            <td>{{question.title}}</td>
+            <td class="Question__views">{{question.views}}</td>
+            <td class="Question__title">{{question.title}}</td>
           </tr>
         {{/each}}
       </tbody>
