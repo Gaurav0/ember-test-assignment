@@ -37,4 +37,6 @@ export default function () {
     }
     return new Response(401);
   });
+
+  this.get("/questions");
 }
