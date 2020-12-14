@@ -14,4 +14,7 @@ declare const config: {
 
   apiNamespace: string;
   serverURL: string
+  "mirage-sauce": {
+    debug: boolean
+  }
 };
