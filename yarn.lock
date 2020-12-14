@@ -6938,6 +6938,11 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
+fractal-page-object@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/fractal-page-object/-/fractal-page-object-0.1.0.tgz#37219033dd6b8b9ba2606727d9c8b21ae73f2c52"
+  integrity sha512-dLvBc0yW0eOxZJVb3Uxr9gbtR2BKZl5UKUuPn1hk556MKdsbQmvKazOuHKQt9/loc5uFYwpt9MI1nHkygj6XVQ==
+
 fragment-cache@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
