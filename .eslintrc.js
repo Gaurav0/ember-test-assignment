@@ -13,13 +13,15 @@ module.exports = {
   plugins: ["ember"],
   extends: [
     "eslint:recommended",
-    "plugin:ember/recommended"
+    "plugin:ember/recommended",
+    "plugin:prettier/recommended",
   ],
   env: {
     browser: true,
   },
   rules: {
-    "ember/no-mixins": "off"
+    "ember/no-mixins": "off",
+    "prettier/prettier": "error",
   },
   overrides: [
     // node files
