@@ -10,7 +10,7 @@ Router.map(function() {
   this.route("login");
   this.route("signup");
   this.route("authenticated", { path: "/" }, function() {
-    this.route("dashboard", { path: "/" });
+    this.route("questions", { path: "/" });
     this.route("ask");
     this.route("post", { path: "/:slug" });
   });

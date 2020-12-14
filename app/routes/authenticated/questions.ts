@@ -5,7 +5,7 @@ interface Params {
   page?: number
 }
 
-export default class DashboardRoute extends Route {
+export default class QuestionsRoute extends Route {
   queryParams = {
     search: {
       refreshModel: true
