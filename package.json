@@ -68,6 +68,7 @@
     "eslint-plugin-ember": "^10.0.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.0",
+    "faker": "^5.1.0",
     "loader.js": "^4.7.0",
     "prettier": "^2.2.1",
     "qunit": "^2.13.0",
