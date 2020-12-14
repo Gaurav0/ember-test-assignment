@@ -21,5 +21,10 @@
         {{/each}}
       </tbody>
     </table>
+    <div class="Question__page-nav">
+      {{#each this.pages as |page|}}
+        <LinkTo @route="authenticated.questions" @query={{hash page=page}}>{{page}}</LinkTo>
+      {{/each}}
+    </div>
   </main>
 </div>

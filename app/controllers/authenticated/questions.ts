@@ -11,6 +11,18 @@ export default class QuestionsController extends Controller {
 
   @tracked tempSearch = "";
 
+  get totalPages(): number {
+    return this.model?.meta.pages ?? 0;
+  }
+
+  get pages(): number[] {
+    const array = new Array(this.totalPages);
+    for (let index = 0; index < this.totalPages; ++index) {
+      array[index] = index + 1;
+    }
+    return array;
+  }
+
   @action
   updateSearch(event: InputEvent) {
     const search = (event.target! as HTMLInputElement).value;
