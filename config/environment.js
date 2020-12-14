@@ -25,6 +25,9 @@ module.exports = function (environment) {
     "mirage-sauce": {
       debug: false,
     },
+    "ember-simple-auth": {
+      routeAfterAuthentication: "authenticated.questions",
+    },
   };
 
   ENV.serverURL = "https://expert-advice.com";

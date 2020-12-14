@@ -6,11 +6,13 @@ class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function() {
+Router.map(function () {
   this.route("login");
   this.route("signup");
-  this.route("authenticated", { path: "/" }, function() {
-    this.route("questions", { path: "/" });
+  this.route("authenticated", { path: "/" }, function () {
+    this.route("questions", { path: "/" }, function () {
+      this.route("index", { path: "/" });
+    });
     this.route("ask");
     this.route("post", { path: "/:slug" });
   });

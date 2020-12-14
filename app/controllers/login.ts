@@ -10,12 +10,19 @@ export default class LoginController extends Controller {
   @tracked password = "";
   @tracked errorMessage = "";
 
+  reset() {
+    this.email = "";
+    this.password = "";
+    this.errorMessage = "";
+  }
+
   @action
   async login(email: string, password: string, event: Event): Promise<void> {
     event.preventDefault();
     try {
       await this.session.authenticate("authenticator:oauth2", email, password);
-    } catch {
+    } catch(e) {
+      console.error(e);
       this.errorMessage = "Invalid login.";
     }
   }

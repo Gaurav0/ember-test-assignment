@@ -14,6 +14,6 @@ export default class LoginController extends Controller {
       user.email,
       user.password
     );
-    this.transitionToRoute("index");
+    await this.transitionToRoute("authenticated.questions");
   }
 }

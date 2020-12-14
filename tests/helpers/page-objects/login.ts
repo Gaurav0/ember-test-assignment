@@ -9,20 +9,20 @@ class LoginPage extends PageObject {
   submitButton = selector(".login-form button[type='submit']");
   error = selector(".login-form__error");
 
-  visit() {
-    return visit(this.url);
+  async visit() {
+    await visit(this.url);
   }
 
-  fillInEmail(value: string) {
-    return fillIn(this.emailField.element!, value);
+  async fillInEmail(value: string) {
+    await fillIn(this.emailField.element!, value);
   }
 
-  fillInPassword(value: string) {
-    return fillIn(this.passwordField.element!, value);
+  async fillInPassword(value: string) {
+    await fillIn(this.passwordField.element!, value);
   }
 
-  submit() {
-    return click(this.submitButton.element!);
+  async submit() {
+    await click(this.submitButton.element!);
   }
 }
 

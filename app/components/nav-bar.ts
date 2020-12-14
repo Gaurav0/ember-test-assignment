@@ -9,7 +9,7 @@ export default class NavBarComponent extends Component {
   @tracked collapsed = false;
 
   @action
-  async logout() {
-    await this.session.invalidate();
+  logout() {
+    this.session.invalidate();
   }
 }
