@@ -1,4 +1,4 @@
-import ENV from "ember-test-assignment/config/environment";
+import ENV from "expert-advice/config/environment";
 import { Response } from 'miragejs';
 
 export default function() {

@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: "ember-test-assignment",
+    modulePrefix: "expert-advice",
     environment,
     rootURL: "/",
     locationType: "auto",
@@ -24,7 +24,7 @@ module.exports = function(environment) {
     }
   };
 
-  ENV.serverURL = "https://ember-test-assignment.com";
+  ENV.serverURL = "https://expert-advice.com";
 
   ENV['ember-cli-mirage'] = {
     enabled: true,
