@@ -21,13 +21,13 @@
     "module": "es6",
     "experimentalDecorators": true,
     "paths": {
-      "ember-test-assignment/tests/*": [
+      "expert-advice/tests/*": [
         "tests/*"
       ],
-      "ember-test-assignment/mirage/*": [
+      "expert-advice/mirage/*": [
         "mirage/*"
       ],
-      "ember-test-assignment/*": [
+      "expert-advice/*": [
         "app/*"
       ],
       "*": [

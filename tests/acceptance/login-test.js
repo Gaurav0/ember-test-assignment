@@ -2,7 +2,7 @@ import { module, test } from "qunit";
 import { currentURL } from "@ember/test-helpers";
 import { setupApplicationTest } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import defaultScenario from "ember-test-assignment/mirage/scenarios/default";
+import defaultScenario from "expert-advice/mirage/scenarios/default";
 import loginPage from "../helpers/page-objects/login";
 
 module("Acceptance | login", function(hooks) {
