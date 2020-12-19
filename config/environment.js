@@ -26,7 +26,7 @@ module.exports = function (environment) {
       debug: false,
     },
     "ember-simple-auth": {
-      routeAfterAuthentication: "authenticated.questions",
+      routeAfterAuthentication: "/",
     },
   };
 
