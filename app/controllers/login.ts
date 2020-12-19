@@ -10,7 +10,7 @@ export default class LoginController extends Controller {
   @tracked password = "";
   @tracked errorMessage = "";
 
-  reset() {
+  reset(): void {
     this.email = "";
     this.password = "";
     this.errorMessage = "";

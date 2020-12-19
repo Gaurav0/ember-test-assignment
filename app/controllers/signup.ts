@@ -6,7 +6,7 @@ export default class LoginController extends Controller {
   @service session!: Services["session"];
 
   @action
-  async signup() {
+  async signup(): Promise<void> {
     const user = this.model;
     await user.save();
     await this.session.authenticate(

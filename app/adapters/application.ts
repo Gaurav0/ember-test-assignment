@@ -8,6 +8,10 @@ import { inject as service } from "@ember/service";
 import ENV from "../config/environment";
 import { Registry as Services } from "@ember/service";
 
+interface Headers {
+  Authorization?: string;
+}
+
 export default class ApplicationAdapter extends JSONAPIAdapter {
   @service session!: Services["session"];
 
@@ -20,8 +24,8 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   }
 
   @computed("session.{isAuthenticated,data.authenticated.access_token}")
-  get headers() {
-    const headers: { Authorization?: string } = {};
+  get headers(): Headers {
+    const headers: Headers = {};
     if (this.session.isAuthenticated) {
       headers["Authorization"] = `Bearer ${
         this.session.data!.authenticated.access_token

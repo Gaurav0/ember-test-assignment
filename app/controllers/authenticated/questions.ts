@@ -24,13 +24,13 @@ export default class QuestionsController extends Controller {
   }
 
   @action
-  updateSearch(event: InputEvent) {
+  updateSearch(event: InputEvent): void {
     const search = (event.target! as HTMLInputElement).value;
     this.tempSearch = search;
     debounce(this.debouncedUpdateSearch.bind(this), 500, true);
   }
 
-  debouncedUpdateSearch() {
+  debouncedUpdateSearch(): void {
     if (this.tempSearch.length >= 3) {
       this.search = this.tempSearch;
     } else {

@@ -5,7 +5,7 @@ import Transition from "@ember/routing/-private/transition";
 export default class AuthenticatedRoute extends Route {
   @service session!: Services["session"];
 
-  async beforeModel(transition: Transition) {
+  async beforeModel(transition: Transition): Promise<void> {
     this.session.requireAuthentication(transition, "login");
     await this.session.loadUser();
   }

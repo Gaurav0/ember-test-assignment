@@ -1,7 +1,7 @@
 import ApplicationAdapter from "./application";
 
 export interface Query {
-  me?: any;
+  me?: unknown;
 }
 
 export default class UserAdapter extends ApplicationAdapter {

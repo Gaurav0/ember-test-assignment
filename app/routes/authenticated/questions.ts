@@ -24,7 +24,7 @@ export default class QuestionsRoute extends Route {
     },
   };
 
-  async model(params: Params) {
+  async model(params: Params): Promise<unknown> {
     const query: Query = {
       sort: "-views",
       "page[size]": 10,
@@ -38,9 +38,9 @@ export default class QuestionsRoute extends Route {
 
   setupController(
     controller: QuestionsController,
-    model: {},
+    model: Record<string, unknown>,
     transition: Transition
-  ) {
+  ): void {
     super.setupController(controller, model, transition);
     controller.tempSearch = controller.search;
   }

@@ -9,19 +9,19 @@ class LoginPage extends PageObject {
   submitButton = selector(".login-form button[type='submit']");
   error = selector(".login-form__error");
 
-  async visit() {
+  async visit(): Promise<void> {
     await visit(this.url);
   }
 
-  async fillInEmail(value: string) {
+  async fillInEmail(value: string): Promise<void> {
     await fillIn(this.emailField.element!, value);
   }
 
-  async fillInPassword(value: string) {
+  async fillInPassword(value: string): Promise<void> {
     await fillIn(this.passwordField.element!, value);
   }
 
-  async submit() {
+  async submit(): Promise<void> {
     await click(this.submitButton.element!);
   }
 }

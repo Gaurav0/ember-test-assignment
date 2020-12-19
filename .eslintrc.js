@@ -10,7 +10,8 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ["ember"],
+  plugins: ["ember", "disable"],
+  processor: "disable/disable",
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -24,8 +25,23 @@ module.exports = {
   rules: {
     "ember/no-mixins": "off",
     "prettier/prettier": "error",
+    "@typescript-eslint/no-non-null-assertion": "off",
   },
   overrides: [
+    // mirage files
+    {
+      files: ["mirage/**/*.js"],
+      settings: {
+        "disable/plugins": ["@typescript-eslint"],
+      },
+    },
+    // typescript definitions files
+    {
+      files: ["types/**/*.d.ts"],
+      settings: {
+        "disable/plugins": ["@typescript-eslint"],
+      },
+    },
     // node files
     {
       files: [
@@ -56,6 +72,9 @@ module.exports = {
           "node/no-unpublished-require": "off",
         }
       ),
+      settings: {
+        "disable/plugins": ["@typescript-eslint"],
+      },
     },
   ],
 };

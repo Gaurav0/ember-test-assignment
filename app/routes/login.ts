@@ -6,7 +6,7 @@ import Transition from "@ember/routing/-private/transition";
 export default class LoginRoute extends Route {
   @service session!: Services["session"];
 
-  beforeModel() {
+  beforeModel(): void {
     this.session.prohibitAuthentication("authenticated.questions");
   }
 
@@ -14,7 +14,7 @@ export default class LoginRoute extends Route {
     controller: LoginController,
     isExiting: boolean,
     transition: Transition
-  ) {
+  ): void {
     controller.reset();
     super.resetController(controller, isExiting, transition);
   }

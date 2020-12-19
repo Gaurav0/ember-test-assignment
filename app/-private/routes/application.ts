@@ -6,7 +6,7 @@ export default class ApplicationRoute extends Route {
   @service session!: Services["session"];
 
   @action
-  logout() {
+  logout(): void {
     this.session.invalidate();
   }
 }
