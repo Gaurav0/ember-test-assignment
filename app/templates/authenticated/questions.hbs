@@ -10,11 +10,11 @@
     <table class="Question__table">
       <thead>
         <th class="Question__header-views">Views</th>
-        <th class="Question__header-ttile">Questions</th>
+        <th class="Question__header-title">Questions</th>
       </thead>
       <tbody>
         {{#each @model as |question|}}
-          <tr>
+          <tr class="Question__question">
             <td class="Question__views">{{question.views}}</td>
             <td class="Question__title">{{question.title}}</td>
           </tr>
