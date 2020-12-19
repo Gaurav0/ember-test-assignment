@@ -46,7 +46,7 @@ declare module "ember-simple-auth/services/session" {
     attemptedTransition: any;
     session: any;
 
-    authenticate(...args: any[]): RSVP.Promise<any>;
+    authenticate(...args: unknown[]): RSVP.Promise<boolean>;
     invalidate(...args: any): void;
     authorize(...args: any[]): RSVP.Promise<any>;
 
