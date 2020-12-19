@@ -13,8 +13,8 @@ declare const config: {
   APP: Record<string, unknown>;
 
   apiNamespace: string;
-  serverURL: string
+  serverURL: string;
   "mirage-sauce": {
-    debug: boolean
-  }
+    debug: boolean;
+  };
 };

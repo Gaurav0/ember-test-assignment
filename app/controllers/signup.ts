@@ -3,7 +3,7 @@ import { inject as service, Registry as Services } from "@ember/service";
 import { action } from "@ember/object";
 
 export default class LoginController extends Controller {
-  @service session!: Services['session'];
+  @service session!: Services["session"];
 
   @action
   async signup() {

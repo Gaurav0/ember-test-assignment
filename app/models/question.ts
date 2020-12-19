@@ -1,4 +1,4 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr } from "@ember-data/model";
 
 export default class Question extends Model {
   @attr("string") title?: string;

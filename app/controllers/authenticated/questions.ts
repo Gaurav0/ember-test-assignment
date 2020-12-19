@@ -4,7 +4,7 @@ import { debounce } from "@ember/runloop";
 import { tracked } from "@glimmer/tracking";
 
 export default class QuestionsController extends Controller {
-  queryParams = ['search', 'page'];
+  queryParams = ["search", "page"];
 
   @tracked search = "";
   @tracked page = 1;
@@ -33,8 +33,7 @@ export default class QuestionsController extends Controller {
   debouncedUpdateSearch() {
     if (this.tempSearch.length >= 3) {
       this.search = this.tempSearch;
-    }
-    else {
+    } else {
       this.search = "";
     }
   }

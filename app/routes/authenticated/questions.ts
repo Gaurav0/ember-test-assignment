@@ -3,40 +3,44 @@ import QuestionsController from "expert-advice/controllers/authenticated/questio
 import Transition from "@ember/routing/-private/transition";
 
 interface Params {
-  search?: string,
-  page?: number
+  search?: string;
+  page?: number;
 }
 
 interface Query {
-  sort: string,
-  "page[size]": number,
-  "page[number]": number,
-  "filter[search]"?: string
+  sort: string;
+  "page[size]": number;
+  "page[number]": number;
+  "filter[search]"?: string;
 }
 
 export default class QuestionsRoute extends Route {
   queryParams = {
     search: {
-      refreshModel: true
+      refreshModel: true,
     },
     page: {
-      refreshModel: true
-    }
+      refreshModel: true,
+    },
   };
 
   async model(params: Params) {
     const query: Query = {
       sort: "-views",
       "page[size]": 10,
-      "page[number]": params.page!
+      "page[number]": params.page!,
     };
     if (params.search) {
-      query["filter[search]"] = params.search
+      query["filter[search]"] = params.search;
     }
-    return this.store.query('question', query);
+    return this.store.query("question", query);
   }
 
-  setupController(controller: QuestionsController, model: {}, transition: Transition) {
+  setupController(
+    controller: QuestionsController,
+    model: {},
+    transition: Transition
+  ) {
     super.setupController(controller, model, transition);
     controller.tempSearch = controller.search;
   }

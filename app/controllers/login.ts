@@ -4,7 +4,7 @@ import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 
 export default class LoginController extends Controller {
-  @service session!: Services['session'];
+  @service session!: Services["session"];
 
   @tracked email = "";
   @tracked password = "";
@@ -21,7 +21,7 @@ export default class LoginController extends Controller {
     event.preventDefault();
     try {
       await this.session.authenticate("authenticator:oauth2", email, password);
-    } catch(e) {
+    } catch (e) {
       console.error(e);
       this.errorMessage = "Invalid login.";
     }

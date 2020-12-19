@@ -1,10 +1,10 @@
 import Component from "@glimmer/component";
 import { inject as service, Registry as Services } from "@ember/service";
 import { action } from "@ember/object";
-import { tracked } from '@glimmer/tracking';
+import { tracked } from "@glimmer/tracking";
 
 export default class NavBarComponent extends Component {
-  @service session!: Services['session'];
+  @service session!: Services["session"];
 
   @tracked collapsed = false;
 

@@ -10,8 +10,8 @@ import { Server as MirageServer } from "miragejs";
 const loginPage = new LoginPage();
 
 type Context = TestContext & {
-  server: MirageServer
-}
+  server: MirageServer;
+};
 
 module("Acceptance | login", function (hooks) {
   setupApplicationTest(hooks);
