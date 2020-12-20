@@ -9,13 +9,11 @@ class Router extends EmberRouter {
 Router.map(function () {
   this.route("login");
   this.route("signup");
-  this.route("authenticated", { path: "/" }, function () {
-    this.route("questions", { path: "/" }, function () {
-      this.route("index", { path: "/" });
-    });
-    this.route("ask");
-    this.route("post", { path: "/:slug" });
+  this.route("questions", { path: "/" }, function () {
+    this.route("index", { path: "/" });
   });
+  this.route("ask");
+  this.route("post", { path: "/:slug" });
 });
 
 export default Router;

@@ -1,9 +1,12 @@
 import Controller from "@ember/controller";
+import { inject as service, Registry as Services } from "@ember/service";
 import { action } from "@ember/object";
 import { debounce } from "@ember/runloop";
 import { tracked } from "@glimmer/tracking";
 
 export default class QuestionsController extends Controller {
+  @service session!: Services["session"];
+
   queryParams = ["search", "page"];
 
   @tracked search = "";

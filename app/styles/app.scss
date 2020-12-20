@@ -9,3 +9,10 @@ body, .h-screen {
 .login-form__error {
   color: #dc3545;
 }
+
+a[disabled] {
+  pointer-events: none;
+  background-color: lightgray;
+  border-color: lightgray;
+  color: gray; 
+}

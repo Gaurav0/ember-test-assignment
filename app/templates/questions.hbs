@@ -5,7 +5,14 @@
     <div class="Question__search-bar">
       <div class="Question__search">
         <input value={{this.tempSearch}} {{on "input" this.updateSearch}} placeholder="Search..." />
-        <button type="button" class="Question__ask-button btn btn-primary">Ask a Question</button>
+        <LinkTo
+          @route="ask"
+          disabled={{unless this.session.user.email "disabled"}}
+          role="button"
+          class="Question__ask-button btn btn-primary"
+        >
+          Ask a Question
+        </LinkTo>
       </div>
     </div>
     <table class="Question__table">
@@ -24,7 +31,7 @@
     </table>
     <div class="Question__page-nav">
       {{#each this.pages as |page|}}
-        <LinkTo @route="authenticated.questions" @query={{hash page=page}}>{{page}}</LinkTo>
+        <LinkTo @route="questions" @query={{hash page=page}}>{{page}}</LinkTo>
       {{/each}}
     </div>
   </main>

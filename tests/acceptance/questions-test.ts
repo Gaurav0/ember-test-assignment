@@ -5,7 +5,7 @@ import { setupApplicationTest } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import defaultScenario from "expert-advice/mirage/scenarios/default";
 import { Server as MirageServer } from "miragejs";
-import authenticate from "expert-advice/tests/helpers/authenticate";
+import { authenticate, invalidate } from "expert-advice/tests/helpers/authenticate";
 import QuestionsPage from "expert-advice/tests/helpers/page-objects/questions";
 
 type Context = TestContext & {
@@ -17,6 +17,9 @@ const questionsPage = new QuestionsPage();
 module("Acceptance | questions", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+  hooks.afterEach(async function (this: Context) {
+    await invalidate(this.owner);
+  });
 
   test("Loads questions route successfully", async function (this: Context, assert) {
     defaultScenario(this.server);
@@ -50,6 +53,12 @@ module("Acceptance | questions", function (hooks) {
     );
 
     assert.equal(
+      questionsPage.askButton.element?.getAttribute("disabled"),
+      null,
+      "Ask button is enabled"
+    );
+
+    assert.equal(
       questionsPage.viewsColumnHeader.element?.textContent?.trim(),
       "Views",
       "Views column header is shown"
@@ -59,6 +68,17 @@ module("Acceptance | questions", function (hooks) {
       questionsPage.titleColumnHeader.element?.textContent?.trim(),
       "Questions",
       "Question title column header is shown"
+    );
+  });
+
+  test("Can load questions route without authentication", async function (this: Context, assert) {
+    defaultScenario(this.server);
+    await questionsPage.visit();
+
+    assert.equal(
+      questionsPage.askButton.element?.getAttribute("disabled"),
+      "disabled",
+      "Ask button is disabled"
     );
   });
 

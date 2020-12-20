@@ -7,7 +7,7 @@ export default class LoginRoute extends Route {
   @service session!: Services["session"];
 
   beforeModel(): void {
-    this.session.prohibitAuthentication("authenticated.questions");
+    this.session.prohibitAuthentication("questions");
   }
 
   resetController(

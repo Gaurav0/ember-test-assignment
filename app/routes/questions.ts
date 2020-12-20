@@ -1,6 +1,7 @@
 import Route from "@ember/routing/route";
-import QuestionsController from "expert-advice/controllers/authenticated/questions";
+import QuestionsController from "expert-advice/controllers/questions";
 import Transition from "@ember/routing/-private/transition";
+import { inject as service, Registry as Services } from "@ember/service";
 
 interface Params {
   search?: string;
@@ -15,6 +16,8 @@ interface Query {
 }
 
 export default class QuestionsRoute extends Route {
+  @service session!: Services["session"];
+
   queryParams = {
     search: {
       refreshModel: true,
@@ -23,6 +26,14 @@ export default class QuestionsRoute extends Route {
       refreshModel: true,
     },
   };
+
+  async beforeModel(): Promise<void> {
+    if (!this.session.user?.email) {
+      await this.session.loadUser();
+    } else {
+      await this.session.invalidate();
+    }
+  }
 
   async model(params: Params): Promise<unknown> {
     const query: Query = {
