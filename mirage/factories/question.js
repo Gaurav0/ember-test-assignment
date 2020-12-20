@@ -9,4 +9,13 @@ export default Factory.extend({
     return faker.lorem.paragraphs(2);
   },
   views: 0,
+  createdAt() {
+    return new Date();
+  },
+  createdBy() {
+    return window.server.schema.users.first();
+  },
+  tags() {
+    return [];
+  },
 });

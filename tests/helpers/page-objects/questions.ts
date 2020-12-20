@@ -5,6 +5,7 @@ class QuestionsPage extends PageObject {
   url = "/";
 
   header = selector(".Question__header");
+  subheader = selector(".Question__subheader");
   searchBar = selector(".Question__search-bar");
   searchField = selector(".Question__search>input");
   askButton = selector(".Question__ask-button");

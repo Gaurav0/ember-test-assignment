@@ -32,6 +32,12 @@ module("Acceptance | questions", function (hooks) {
     );
 
     assert.equal(
+      questionsPage.subheader.element?.textContent?.trim(),
+      "Get answers to difficult questions",
+      "subheader is shown"
+    );
+
+    assert.equal(
       questionsPage.searchField.element?.getAttribute("placeholder"),
       "Search...",
       "search field is shown"
