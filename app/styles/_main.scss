@@ -1,3 +1,14 @@
 main {
   padding-top: 70px;
 }
+
+body, .h-screen {
+  height: 100vh;
+}
+
+a[disabled] {
+  pointer-events: none;
+  background-color: lightgray;
+  border-color: lightgray;
+  color: gray;
+}

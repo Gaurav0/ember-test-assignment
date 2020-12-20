@@ -22,6 +22,4 @@ before_install:
   - export PATH=$HOME/.yarn/bin:$PATH
 
 script:
-  - npm run lint:hbs
-  - npm run lint:js
-  - npm test
+  - yarn test

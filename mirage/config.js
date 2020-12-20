@@ -1,5 +1,6 @@
 import ENV from "expert-advice/config/environment";
 import { Response } from "miragejs";
+import MirageSerializer from "./serializers/application";
 
 export default function () {
   this.logging = true;
@@ -39,4 +40,47 @@ export default function () {
   });
 
   this.get("/questions");
+
+  this.post("/questions", function (schema) {
+    const attrs = this.normalizedRequestAttrs();
+
+    console.log(attrs);
+
+    attrs.views = 0;
+    attrs.createdAt = new Date();
+    // attrs.createdById // should ensure is correct
+
+    let errors = [];
+
+    if (!attrs.title) {
+      errors.push({
+        code: 101,
+        message: "Title must have a value",
+        value: attrs.title,
+      });
+    }
+
+    if (!attrs.tags || !Array.isArray(attrs.tags) || attrs.tags.length === 0) {
+      errors.push({
+        code: 102,
+        message: "You must provide at least one tag",
+        value: attrs.title,
+      });
+    }
+
+    console.log(errors);
+
+    if (errors.length > 0) {
+      return new Response(400, { errors });
+    }
+
+    let json;
+    try {
+      json = schema.questions.create(attrs);
+    } catch (e) {
+      console.error(e);
+    }
+
+    return schema.questions.create(attrs);
+  });
 }

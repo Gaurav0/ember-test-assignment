@@ -5,7 +5,10 @@ import { setupApplicationTest } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import defaultScenario from "expert-advice/mirage/scenarios/default";
 import { Server as MirageServer } from "miragejs";
-import { authenticate, invalidate } from "expert-advice/tests/helpers/authenticate";
+import {
+  authenticate,
+  invalidate,
+} from "expert-advice/tests/helpers/authenticate";
 import QuestionsPage from "expert-advice/tests/helpers/page-objects/questions";
 
 type Context = TestContext & {

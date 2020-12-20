@@ -6,6 +6,7 @@ export default class Question extends Model {
   @attr("string") description?: string;
   @attr("number") views?: number;
   @attr("date") createdAt?: Date;
+  @attr("string") slug?: string;
   @attr() tags?: string[];
 
   @belongsTo("user") createdBy?: User;

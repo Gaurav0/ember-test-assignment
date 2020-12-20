@@ -5,7 +5,8 @@
 }
 
 .Question__header {
-  font-size: x-large;
+  font-size: large;
+  font-weight: bold;
 }
 
 .Question__ask-button {
@@ -16,11 +17,11 @@
   width: 10%;
   min-width: 100px;
   text-align: right;
-  font-size: smaller;
+  font-size: small;
 }
 
 .Question__header-title, .Question__title {
-  font-size: larger;
+  font-size: large;
 }
 
 .Question__table th, .Question__table td {

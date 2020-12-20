@@ -1,18 +1,4 @@
 @import "ember-bootstrap/bootstrap";
 @import "main";
 @import "questions";
-
-body, .h-screen {
-  height: 100vh;
-}
-
-.login-form__error {
-  color: #dc3545;
-}
-
-a[disabled] {
-  pointer-events: none;
-  background-color: lightgray;
-  border-color: lightgray;
-  color: gray; 
-}
+@import "ask";

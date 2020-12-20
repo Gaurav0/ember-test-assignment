@@ -1,1 +1,20 @@
-stuff
+<div class="row h-screen">
+  <main role="main" class="col-md-10">
+    <div class="Question__header">Expert Advice</div>
+    <div class="Question__subheader">Get answers to difficult questions</div>
+    <form class="Ask__form" {{on "submit" this.postQuestion}}>
+      <div class="Ask__form-header">Ask a question</div>
+      <label class="Ask__label Ask__label-title" for="Ask__title">Title</label>
+      <input id="Ask__title" class="Ask__field" value={{this.question.title}} {{on "input" this.updateTitle}}>
+      <label class="Ask__label Ask__label-description" for="Ask__description">Description</label>
+      <textarea id="Ask__description" class="Ask__field" {{on "input" this.updateDescription}}>{{this.question.description}}</textarea>
+      <label for="Ask__tags">
+        <span class="Ask__tags-label-title">Tags</span>
+        <span class="Ask__tags-label-addendum">(Separated by comma)</span>
+      </label>
+      <input id="Ask__tags" class="Ask__field" value={{this.tagsCommaSeparated}} {{on "input" this.updateTags}}>
+      <button type="submit" class="Ask__post-button btn btn-primary">Ask a question</button>
+      <button type="reset" class="Ask__reset-button btn btn-secondary" {{on "click" this.resetForm}}>Reset</button>
+    </form>
+  </main>
+</div>

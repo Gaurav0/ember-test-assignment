@@ -15,8 +15,9 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "lint:ts": "tsc --noEmit",
+    "lint": "yarn lint:hbs && yarn lint:js && yarn lint:ts",
     "start": "ember serve",
-    "test": "ember test"
+    "test": "yarn lint && ember test"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
@@ -77,6 +78,7 @@
     "qunit": "^2.13.0",
     "qunit-dom": "^1.6.0",
     "sass": "^1.26.10",
+    "slug": "^4.0.2",
     "typescript": "^4.1.3"
   },
   "ember": {
