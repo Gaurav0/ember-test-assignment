@@ -13,6 +13,10 @@ export default class PostRoute extends Route {
     return this.store.queryRecord("question", { slug: params.slug });
   }
 
+  async afterModel(model: Question): Promise<void> {
+    await model.incrementViews();
+  }
+
   serialize(model: Question): Params {
     return { slug: model.slug };
   }

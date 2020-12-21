@@ -20,6 +20,6 @@ export default function config(this: Server): void {
   this.get("/users/me", getUsersMe);
 
   this.get("/questions");
-
+  this.patch("/questions/:id");
   this.post("/questions", postQuestions);
 }

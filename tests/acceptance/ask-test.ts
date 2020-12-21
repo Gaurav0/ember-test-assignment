@@ -11,6 +11,7 @@ import {
 } from "expert-advice/tests/helpers/authenticate";
 import QuestionsPage from "expert-advice/tests/helpers/page-objects/questions";
 import AskPage from "expert-advice/tests/helpers/page-objects/ask";
+import PostPage from "expert-advice/tests/helpers/page-objects/post";
 import faker from "faker";
 
 type Context = TestContext & {
@@ -19,6 +20,7 @@ type Context = TestContext & {
 
 const questionsPage = new QuestionsPage();
 const askPage = new AskPage();
+const postPage = new PostPage();
 
 module("Acceptance | ask", function (hooks) {
   setupApplicationTest(hooks);
@@ -103,6 +105,18 @@ module("Acceptance | ask", function (hooks) {
     await askPage.postQuestion();
 
     assert.equal(currentURL(), "/what-is-the-meaning-of-life");
+
+    assert.equal(
+      postPage.views.element?.textContent?.trim(),
+      1,
+      "views was incremented to 1"
+    );
+
+    assert.equal(
+      postPage.title.element?.textContent?.trim(),
+      "What is the meaning of life?",
+      "title is correct"
+    );
   });
 
   test("Can show all 3 validation messages", async function (this: Context, assert) {

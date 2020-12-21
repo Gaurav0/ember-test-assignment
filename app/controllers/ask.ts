@@ -61,7 +61,7 @@ export default class AskController extends Controller {
     event.preventDefault();
     try {
       const savedQuestion = await this.question.save();
-      await this.transitionToRoute("post", { slug: savedQuestion.slug });
+      await this.transitionToRoute("post", savedQuestion);
     } catch (error) {
       if (error.isAdapterError) {
         const err = error as MyAdapterError;

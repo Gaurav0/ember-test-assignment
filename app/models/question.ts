@@ -12,4 +12,10 @@ export default class Question extends Model {
   @belongsTo("user") createdBy?: User;
 
   //@hasMany() answers: Answer[]
+
+  async incrementViews(): Promise<void> {
+    this.views ??= 0;
+    this.views++;
+    await this.save();
+  }
 }
