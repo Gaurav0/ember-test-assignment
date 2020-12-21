@@ -10,6 +10,9 @@
       {{/if}}
       <input id="Ask__title" class="Ask__field" value={{this.question.title}} {{on "input" this.updateTitle}}>
       <label class="Ask__label Ask__label-description" for="Ask__description">Description</label>
+      {{#if this.descriptionError}}
+        <div class="Ask__error">{{this.descriptionError}}</div>
+      {{/if}}
       <textarea id="Ask__description" class="Ask__field" {{on "input" this.updateDescription}}>{{this.question.description}}</textarea>
       <label for="Ask__tags">
         <span class="Ask__tags-label-title">Tags</span>

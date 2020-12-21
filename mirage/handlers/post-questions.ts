@@ -25,9 +25,17 @@ export default function postQuestions(
     });
   }
 
-  if (!attrs.tags || !Array.isArray(attrs.tags) || attrs.tags.length === 0) {
+  if (!attrs.description) {
     errors.push({
       code: 102,
+      message: "Description must not be empty",
+      value: attrs.description,
+    });
+  }
+
+  if (!attrs.tags || !Array.isArray(attrs.tags) || attrs.tags.length === 0) {
+    errors.push({
+      code: 103,
       message: "You must provide at least one tag",
       value: attrs.tags,
     });

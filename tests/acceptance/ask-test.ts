@@ -11,6 +11,7 @@ import {
 } from "expert-advice/tests/helpers/authenticate";
 import QuestionsPage from "expert-advice/tests/helpers/page-objects/questions";
 import AskPage from "expert-advice/tests/helpers/page-objects/ask";
+import faker from "faker";
 
 type Context = TestContext & {
   server: MirageServer;
@@ -89,5 +90,32 @@ module("Acceptance | ask", function (hooks) {
     await settled();
 
     assert.equal(currentURL(), "/login", "rediriected to login route");
+  });
+
+  test("Can successfully post a question", async function (this: Context, assert) {
+    defaultScenario(this.server);
+    await authenticate(this.owner);
+    await askPage.visit();
+
+    await askPage.fillInTitle("What is the meaning of life?");
+    await askPage.fillInDescription(faker.lorem.paragraphs(2));
+    await askPage.fillInTags("meaning of life, philosophy");
+    await askPage.postQuestion();
+
+    assert.equal(currentURL(), "/what-is-the-meaning-of-life");
+  });
+
+  test("Can show all 3 validation messages", async function (this: Context, assert) {
+    defaultScenario(this.server);
+    await authenticate(this.owner);
+    await askPage.visit();
+    await askPage.postQuestion();
+
+    assert.equal(currentURL(), "/ask");
+    assert.equal(
+      askPage.validationErrors.length,
+      3,
+      "all three errors are shown"
+    );
   });
 });

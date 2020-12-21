@@ -19,6 +19,7 @@ export default class AskController extends Controller {
   @service session!: Services["session"];
 
   @tracked titleError = "";
+  @tracked descriptionError = "";
   @tracked tagsError = "";
 
   // alias model to question
@@ -43,7 +44,9 @@ export default class AskController extends Controller {
   @action
   updateDescription(event: InputEvent): void {
     this.question.description = (event.target! as HTMLInputElement).value;
+    this.descriptionError = "";
   }
+
   @action
   updateTags(event: InputEvent): void {
     this.question.tags = (event.target! as HTMLInputElement).value
@@ -68,6 +71,9 @@ export default class AskController extends Controller {
               this.titleError = e.message;
               break;
             case 102:
+              this.descriptionError = e.message;
+              break;
+            case 103:
               this.tagsError = e.message;
               break;
             default:
@@ -86,6 +92,7 @@ export default class AskController extends Controller {
       user: this.session.user,
     });
     this.titleError = "";
+    this.descriptionError = "";
     this.tagsError = "";
   }
 }
