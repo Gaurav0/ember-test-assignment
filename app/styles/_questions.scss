@@ -27,3 +27,11 @@
 .Question__table th, .Question__table td {
   padding: 5px 15px;
 }
+
+.Question__tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background-color: darkviolet;
+  color: white;
+}

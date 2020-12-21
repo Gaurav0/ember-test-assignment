@@ -24,7 +24,19 @@
         {{#each @model as |question|}}
           <tr class="Question__question">
             <td class="Question__views">{{question.views}}</td>
-            <td class="Question__title">{{question.title}}</td>
+            <td class="Question__title">
+              <LinkTo class="Question__link" @route="post" @model={{question.slug}}>
+                {{question.title}}
+              </LinkTo>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="Question__tags">
+              {{#each question.tags as |tag|}}
+                <span class="Question__tag">{{tag}}</span>
+              {{/each}}
+            </td>
           </tr>
         {{/each}}
       </tbody>

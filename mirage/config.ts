@@ -3,6 +3,7 @@
 import ENV from "expert-advice/config/environment";
 import getOauthToken from "./handlers/get-oath-token";
 import getUsersMe from "./handlers/get-users-me";
+import getQuestions from "./handlers/get-questions";
 import postQuestions from "./handlers/post-questions";
 
 import { Server } from "ember-cli-mirage";
@@ -19,7 +20,7 @@ export default function config(this: Server): void {
 
   this.get("/users/me", getUsersMe);
 
-  this.get("/questions");
+  this.get("/questions", getQuestions);
   this.patch("/questions/:id");
   this.post("/questions", postQuestions);
 }

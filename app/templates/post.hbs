@@ -3,12 +3,24 @@
     <table class="Question__table">
       <thead>
         <th class="Question__header-views">Views</th>
-        <th class="Question__header-title">Questions</th>
+        <th class="Question__header-title">Question</th>
       </thead>
       <tbody>
         <tr class="Question__question">
           <td class="Question__views">{{this.question.views}}</td>
           <td class="Question__title">{{this.question.title}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="Question__description">{{this.question.description}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="Question__tags">
+            {{#each this.question.tags as |tag|}}
+              <span class="Question__tag">{{tag}}</span>
+            {{/each}}
+          </td>
         </tr>
       </tbody>
     </table>

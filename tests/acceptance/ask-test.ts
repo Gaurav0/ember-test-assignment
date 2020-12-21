@@ -3,7 +3,7 @@ import { currentURL, settled } from "@ember/test-helpers";
 import { TestContext } from "ember-test-helpers";
 import { setupApplicationTest } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import defaultScenario from "expert-advice/mirage/scenarios/default";
+import originalScenario from "expert-advice/mirage/scenarios/original";
 import { Server as MirageServer } from "ember-cli-mirage";
 import {
   authenticate,
@@ -30,7 +30,7 @@ module("Acceptance | ask", function (hooks) {
   });
 
   test("Loads ask route successfully", async function (this: Context, assert) {
-    defaultScenario(this.server);
+    originalScenario(this.server);
     await authenticate(this.owner);
     await askPage.visit();
 
@@ -84,7 +84,7 @@ module("Acceptance | ask", function (hooks) {
   });
 
   test("Redirects to /login if not authenticated", async function (this: Context, assert) {
-    defaultScenario(this.server);
+    originalScenario(this.server);
 
     // Bug in ember: TransitionAborted error thrown See https://github.com/emberjs/ember-test-helpers/issues/332
     assert.rejects(askPage.visit(), "Error: TransitionAborted");
@@ -95,7 +95,7 @@ module("Acceptance | ask", function (hooks) {
   });
 
   test("Can successfully post a question", async function (this: Context, assert) {
-    defaultScenario(this.server);
+    originalScenario(this.server);
     await authenticate(this.owner);
     await askPage.visit();
 
@@ -120,7 +120,7 @@ module("Acceptance | ask", function (hooks) {
   });
 
   test("Can show all 3 validation messages", async function (this: Context, assert) {
-    defaultScenario(this.server);
+    originalScenario(this.server);
     await authenticate(this.owner);
     await askPage.visit();
     await askPage.postQuestion();

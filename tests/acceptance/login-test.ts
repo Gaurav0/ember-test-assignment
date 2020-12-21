@@ -3,7 +3,7 @@ import { currentURL } from "@ember/test-helpers";
 import { TestContext } from "ember-test-helpers";
 import { setupApplicationTest } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import defaultScenario from "expert-advice/mirage/scenarios/default";
+import originalScenario from "expert-advice/mirage/scenarios/original";
 import LoginPage from "../helpers/page-objects/login";
 import { Server as MirageServer } from "ember-cli-mirage";
 
@@ -18,7 +18,7 @@ module("Acceptance | login", function (hooks) {
   setupMirage(hooks);
 
   test("Logging in with invalid credentials", async function (this: Context, assert) {
-    defaultScenario(this.server);
+    originalScenario(this.server);
     await loginPage.visit();
     await loginPage.fillInEmail("unregistered@user.com");
     await loginPage.fillInPassword("anything");
@@ -28,7 +28,7 @@ module("Acceptance | login", function (hooks) {
   });
 
   test("Logging in with valid credentials", async function (this: Context, assert) {
-    defaultScenario(this.server);
+    originalScenario(this.server);
     await loginPage.visit();
     await loginPage.fillInEmail("test@test.com");
     await loginPage.fillInPassword("test");

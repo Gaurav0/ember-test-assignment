@@ -1,6 +1,7 @@
 import { Factory, Server } from "ember-cli-mirage";
 import Schema from "ember-cli-mirage/orm/schema";
 import faker from "faker";
+import slug from "slug";
 
 declare const server: Server;
 
@@ -20,5 +21,8 @@ export default Factory.extend({
   },
   tags() {
     return [];
+  },
+  slug() {
+    return slug((this.title as unknown) as string);
   },
 });

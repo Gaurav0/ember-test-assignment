@@ -37,7 +37,7 @@ export default class QuestionsRoute extends Route {
 
   async model(params: Params): Promise<unknown> {
     const query: Query = {
-      sort: "-views",
+      sort: "-createdAt",
       "page[size]": 10,
       "page[number]": params.page!,
     };
