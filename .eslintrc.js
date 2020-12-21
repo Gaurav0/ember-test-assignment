@@ -28,13 +28,6 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": "off",
   },
   overrides: [
-    // mirage files
-    {
-      files: ["mirage/**/*.js"],
-      settings: {
-        "disable/plugins": ["@typescript-eslint"],
-      },
-    },
     // typescript definitions files
     {
       files: ["types/**/*.d.ts"],

@@ -1,5 +1,8 @@
-import { Factory } from "ember-cli-mirage";
+import { Factory, Server } from "ember-cli-mirage";
+import Schema from "ember-cli-mirage/orm/schema";
 import faker from "faker";
+
+declare const server: Server;
 
 export default Factory.extend({
   title() {
@@ -13,7 +16,7 @@ export default Factory.extend({
     return new Date();
   },
   createdBy() {
-    return window.server.schema.users.first();
+    return (server.schema as Schema).users.first();
   },
   tags() {
     return [];

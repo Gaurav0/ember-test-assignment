@@ -1,0 +1,27 @@
+.Ask__form {
+  margin-left: 110px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.Ask__form-header {
+  font-family: monospace;
+  font-size: x-large;
+  margin-bottom: 20px;
+}
+
+.Ask__label {
+  display: block;
+}
+
+.Ask__field {
+  display: block;
+  margin-bottom: 15px;
+  width: 400px;
+}
+
+.Ask__post-button, .Ask__reset-button {
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-size: small;
+}

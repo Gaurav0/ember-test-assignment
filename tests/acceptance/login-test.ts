@@ -5,7 +5,7 @@ import { setupApplicationTest } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import defaultScenario from "expert-advice/mirage/scenarios/default";
 import LoginPage from "../helpers/page-objects/login";
-import { Server as MirageServer } from "miragejs";
+import { Server as MirageServer } from "ember-cli-mirage";
 
 const loginPage = new LoginPage();
 
