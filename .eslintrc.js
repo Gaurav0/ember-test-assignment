@@ -23,6 +23,7 @@ module.exports = {
     browser: true,
   },
   rules: {
+    "no-console": "error",
     "ember/no-mixins": "off",
     "prettier/prettier": "error",
     "@typescript-eslint/no-non-null-assertion": "off",

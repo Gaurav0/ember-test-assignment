@@ -1,5 +1,5 @@
 import { module, test } from "qunit";
-import { currentURL } from "@ember/test-helpers";
+import { currentURL, settled } from "@ember/test-helpers";
 import { TestContext } from "ember-test-helpers";
 import { setupApplicationTest } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
@@ -80,15 +80,13 @@ module("Acceptance | ask", function (hooks) {
     assert.dom(askPage.postButton.element).exists("post button is shown");
   });
 
-  test("Rediriects to /login if not authenticated", async function (this: Context, assert) {
+  test("Redirects to /login if not authenticated", async function (this: Context, assert) {
     defaultScenario(this.server);
 
     // Bug in ember: TransitionAborted error thrown See https://github.com/emberjs/ember-test-helpers/issues/332
-    try {
-      await askPage.visit();
-    } catch {
-      // Do nothing
-    }
+    assert.rejects(askPage.visit(), "Error: TransitionAborted");
+
+    await settled();
 
     assert.equal(currentURL(), "/login", "rediriected to login route");
   });

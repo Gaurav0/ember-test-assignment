@@ -22,7 +22,7 @@ export default class LoginController extends Controller {
     try {
       await this.session.authenticate("authenticator:oauth2", email, password);
     } catch (e) {
-      console.error(e);
+      console.error(e); // eslint-disable-line no-console
       this.errorMessage = "Invalid login.";
     }
   }
