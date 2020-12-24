@@ -1,5 +1,6 @@
-import Model, { attr, belongsTo } from "@ember-data/model";
+import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import User from "./user";
+import Answer from "./answer";
 
 export default class Question extends Model {
   @attr("string") title?: string;
@@ -11,7 +12,7 @@ export default class Question extends Model {
 
   @belongsTo("user") createdBy?: User;
 
-  //@hasMany() answers: Answer[]
+  @hasMany("answer") answers?: Answer[];
 
   async incrementViews(): Promise<void> {
     this.views ??= 0;

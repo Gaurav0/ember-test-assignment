@@ -20,7 +20,7 @@
   font-size: small;
 }
 
-.Question__header-title, .Question__title {
+.Question__header-title, .Question__title, .Question__answer-header {
   font-size: large;
 }
 
@@ -34,4 +34,13 @@
   border-radius: 10px;
   background-color: darkviolet;
   color: white;
+}
+
+td.Question__answer-header {
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.Question__answer__author, .Question__author {
+  color: green;
 }

@@ -12,6 +12,10 @@
         </tr>
         <tr>
           <td></td>
+          <td class="Question__author">From: {{this.question.createdBy.email}}</td>
+        </tr>
+        <tr>
+          <td></td>
           <td class="Question__description">{{this.question.description}}</td>
         </tr>
         <tr>
@@ -22,6 +26,24 @@
             {{/each}}
           </td>
         </tr>
+        <tr>
+          <td></td>
+          <td class="Question__answer-header">
+            Answers
+          </td>
+        </tr>
+        {{#each this.question.answers as |answer|}}
+          <tr>
+            <td></td>
+            <td class="Question__answer__body">
+              <div class="Question__answer__author">by {{answer.createdBy.email}}</div>
+              <div class="Question__answer__text">{{answer.text}}</div>
+            </td>
+          </tr>
+        {{/each}}
+        {{#if this.session.user.email}}
+
+        {{/if}}
       </tbody>
     </table>
   </main>

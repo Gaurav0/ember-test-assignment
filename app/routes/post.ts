@@ -10,7 +10,10 @@ export default class PostRoute extends Route {
   @service session!: Services["session"];
 
   model(params: Params): Promise<Question | null> {
-    return this.store.queryRecord("question", { slug: params.slug });
+    return this.store.queryRecord("question", {
+      slug: params.slug,
+      include: ["answers", "createdBy", "answers.createdBy"].join(","),
+    });
   }
 
   async afterModel(model: Question): Promise<void> {

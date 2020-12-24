@@ -14,6 +14,7 @@ export class Collection extends DbCollection {
 interface SchemaInterface extends SchemaType {
   users: Collection;
   questions: Collection;
+  answers: Collection;
 }
 
 export default SchemaInterface;

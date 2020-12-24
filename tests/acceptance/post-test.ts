@@ -34,5 +34,43 @@ module("Acceptance | questions", function (hooks) {
       "/what-is-the-meaning-of-life",
       "loaded the post route"
     );
+
+    assert.equal(
+      postPage.title.element?.textContent?.trim(),
+      "What is the meaning of life?",
+      "displays the question"
+    );
+
+    assert.equal(
+      postPage.views.element?.textContent?.trim(),
+      1,
+      "displays the views"
+    );
+
+    assert.equal(
+      postPage.author.element?.textContent?.trim(),
+      "From: test@test.com",
+      "displays question author"
+    );
+
+    assert.dom(postPage.description.element).exists("dispalys description");
+
+    assert.equal(
+      postPage.answersHeader.element?.textContent?.trim(),
+      "Answers",
+      "displays answer header"
+    );
+
+    assert.equal(postPage.answers.length, 1, "1 answer shown");
+
+    assert.equal(
+      postPage.answers[0].author.element?.textContent?.trim(),
+      "by test2@test.com",
+      "answer's author shown"
+    );
+
+    assert
+      .dom(postPage.answers[0].text.element)
+      .exists("displays answer's text");
   });
 });
