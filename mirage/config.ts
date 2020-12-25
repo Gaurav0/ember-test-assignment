@@ -31,7 +31,7 @@ export default function config(this: Server): void {
   this.namespace = "/api/v1";
 
   this.get("/users/me", getUsersMe);
-  this.post("/users", postUsers)
+  this.post("/users", postUsers);
 
   this.get("/questions", getQuestions);
   this.patch("/questions/:id");
