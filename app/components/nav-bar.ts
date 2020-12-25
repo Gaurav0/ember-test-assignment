@@ -10,6 +10,6 @@ export default class NavBarComponent extends Component {
 
   @action
   logout(): void {
-    this.session.invalidate();
+    this.session.invalidate("login");
   }
 }

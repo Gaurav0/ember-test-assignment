@@ -1,9 +1,19 @@
 import { Response, RequestHandlerContext } from "ember-cli-mirage";
+import Schema from "ember-cli-mirage/orm/schema";
+import { setCurrentUser } from "../config";
 
-export default function getOauthToken(this: RequestHandlerContext): Response {
+export default function getOauthToken(
+  this: RequestHandlerContext,
+  schema: Schema
+): Response {
   const { username, password } = this.normalizedRequestAttrs();
+  const user = schema.users.where({
+    email: username,
+    password,
+  });
 
-  if (username === "test@test.com" && password === "test") {
+  if (user.length) {
+    setCurrentUser(user.models[0]);
     return new Response(
       200,
       {},

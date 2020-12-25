@@ -7,7 +7,10 @@
     <navbar.nav @class="ml-auto" as |nav|>
       {{#if this.session.user.email}}
         <nav.dropdown as |dd|>
-          <dd.toggle>{{this.session.user.email}} <span class="caret"></span></dd.toggle>
+          <dd.toggle>
+            <span class="navbar-username">{{this.session.user.email}}</span>
+            <span class="caret"></span>
+          </dd.toggle>
           <dd.menu as |ddm|>
             <ddm.item>{{#ddm.link-to "questions"}}Questions{{/ddm.link-to}}</ddm.item>
             <div class="dropdown-divider"></div>

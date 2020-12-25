@@ -7,6 +7,6 @@ export default class ApplicationRoute extends Route {
 
   @action
   logout(): void {
-    this.session.invalidate();
+    this.session.invalidate("login");
   }
 }

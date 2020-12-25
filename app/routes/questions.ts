@@ -30,8 +30,6 @@ export default class QuestionsRoute extends Route {
   async beforeModel(): Promise<void> {
     if (!this.session.user?.email) {
       await this.session.loadUser();
-    } else {
-      await this.session.invalidate();
     }
   }
 

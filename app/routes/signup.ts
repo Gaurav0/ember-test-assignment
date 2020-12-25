@@ -6,7 +6,7 @@ export default class SignupRoute extends Route {
   @service session!: Services["session"];
 
   beforeModel(): void {
-    this.session.prohibitAuthentication("quthenticated.questions");
+    this.session.prohibitAuthentication("questions");
   }
 
   model(): Promise<User | null> {
