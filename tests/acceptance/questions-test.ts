@@ -3,13 +3,14 @@ import { currentURL } from "@ember/test-helpers";
 import { TestContext } from "ember-test-helpers";
 import { setupApplicationTest } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import originalScenario from "expert-advice/mirage/scenarios/original";
 import { Server as MirageServer } from "ember-cli-mirage";
 import {
   authenticate,
   invalidate,
 } from "expert-advice/tests/helpers/authenticate";
 import QuestionsPage from "expert-advice/tests/helpers/page-objects/questions";
+import originalScenario from "expert-advice/mirage/scenarios/original";
+import defaultScenario from "expert-advice/mirage/scenarios/default";
 
 type Context = TestContext & {
   server: MirageServer;
@@ -45,7 +46,7 @@ module("Acceptance | questions", function (hooks) {
 
     assert.equal(
       questionsPage.searchField.element?.getAttribute("placeholder"),
-      "Search...",
+      "Search by tags...",
       "search field is shown"
     );
 
@@ -83,6 +84,18 @@ module("Acceptance | questions", function (hooks) {
       "disabled",
       "Ask button is disabled"
     );
+  });
+
+  test("can search questions by tags", async function (this: Context, assert) {
+    defaultScenario(this.server);
+    await authenticate(this.owner);
+    await questionsPage.visit();
+
+    assert.equal(questionsPage.questions?.length, 2, "2 questions shown");
+
+    await questionsPage.searchFor("philosophy");
+
+    assert.equal(questionsPage.questions?.length, 1, "1 questions shown");
   });
 
   test("Paginates questions", async function (this: Context, assert) {

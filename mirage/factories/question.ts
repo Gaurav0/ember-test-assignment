@@ -22,6 +22,9 @@ export default Factory.extend({
   tags() {
     return [];
   },
+  tagsJoined() {
+    return ((this.tags as unknown) as string[]).join(", ");
+  },
   slug() {
     return slug((this.title as unknown) as string);
   },
