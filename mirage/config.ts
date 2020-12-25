@@ -5,6 +5,7 @@ import getOauthToken from "./handlers/get-oath-token";
 import getUsersMe from "./handlers/get-users-me";
 import getQuestions from "./handlers/get-questions";
 import postQuestions from "./handlers/post-questions";
+import postAnswers from "./handlers/post-answers";
 
 import { Server } from "ember-cli-mirage";
 
@@ -23,4 +24,6 @@ export default function config(this: Server): void {
   this.get("/questions", getQuestions);
   this.patch("/questions/:id");
   this.post("/questions", postQuestions);
+
+  this.post("/answers", postAnswers);
 }

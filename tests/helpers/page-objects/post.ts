@@ -1,5 +1,5 @@
 import { PageObject, selector } from "fractal-page-object";
-import { visit } from "@ember/test-helpers";
+import { click, fillIn, visit } from "@ember/test-helpers";
 
 export default class PostPage extends PageObject {
   views = selector(".Question__views");
@@ -7,6 +7,8 @@ export default class PostPage extends PageObject {
   author = selector(".Question__author");
   description = selector(".Question__description");
   answersHeader = selector(".Question__answer-header");
+  newAnswerField = selector("#Answer__text");
+  newAnswerPostButton = selector(".Answer__post-button");
 
   tags = selector(
     ".Question__tags",
@@ -25,5 +27,13 @@ export default class PostPage extends PageObject {
 
   async visit(slug: string): Promise<void> {
     await visit(`/${slug}`);
+  }
+
+  async fillInAnswer(answer: string): Promise<void> {
+    await fillIn(this.newAnswerField.element!, answer);
+  }
+
+  async submitAnswer(): Promise<void> {
+    await click(this.newAnswerPostButton.element!);
   }
 }

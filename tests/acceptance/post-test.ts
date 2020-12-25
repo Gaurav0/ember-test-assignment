@@ -72,5 +72,39 @@ module("Acceptance | questions", function (hooks) {
     assert
       .dom(postPage.answers[0].text.element)
       .exists("displays answer's text");
+
+    assert
+      .dom(postPage.newAnswerField.element)
+      .exists("displays new answer textarea");
+
+    assert
+      .dom(postPage.newAnswerPostButton.element)
+      .hasText("Post an answer", "displays new answer post button");
+  });
+
+  test("can successfully post new answer", async function (this: Context, assert) {
+    defaultScenario(this.server);
+    await authenticate(this.owner);
+    await postPage.visit("what-is-the-meaning-of-life");
+
+    assert.equal(
+      currentURL(),
+      "/what-is-the-meaning-of-life",
+      "loaded the post route"
+    );
+
+    assert.equal(postPage.answers.length, 1, "1 answer shown");
+
+    await postPage.fillInAnswer("There is no meaning. Life is random.");
+    await postPage.submitAnswer();
+
+    assert.equal(postPage.answers.length, 2, "2 answers shown");
+
+    assert
+      .dom(postPage.answers[1].text.element)
+      .hasText(
+        "There is no meaning. Life is random.",
+        "Answer successfully posted"
+      );
   });
 });

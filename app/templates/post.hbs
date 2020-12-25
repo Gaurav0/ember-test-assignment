@@ -42,7 +42,29 @@
           </tr>
         {{/each}}
         {{#if this.session.user.email}}
-
+          <tr>
+            <td></td>
+            <td>
+              <textarea
+                id="Answer__text"
+                class="Ask__field"
+                {{on "input" this.updateAnswer}}
+              >{{this.newAnswer.text}}</textarea>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button
+                type="button"
+                class="Answer__post-button btn btn-primary"
+                disabled={{unless this.hasAnswer "disabled"}}
+                {{on "click" this.submitAnswer}}
+              >
+                Post an answer
+              </button>
+            </td>
+          </tr>
         {{/if}}
       </tbody>
     </table>

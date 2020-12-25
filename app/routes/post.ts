@@ -9,6 +9,14 @@ interface Params {
 export default class PostRoute extends Route {
   @service session!: Services["session"];
 
+  async beforeModel(): Promise<void> {
+    if (!this.session.user?.email) {
+      await this.session.loadUser();
+    } else {
+      await this.session.invalidate();
+    }
+  }
+
   model(params: Params): Promise<Question | null> {
     return this.store.queryRecord("question", {
       slug: params.slug,
